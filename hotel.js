@@ -50,3 +50,5 @@ else if (roomChoice == "No") {
     console.log("We hope to see you in the future!")
 
 }
+
+// need to add do while loop 
