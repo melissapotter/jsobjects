@@ -34,7 +34,7 @@ if (roomChoice == "Yes") {
             console.log("You have booked Room 4! Thank you and we appreciate your business!");
         }
         else if (roomChoice == "No") {
-    console.log("We hope to see you in the future!")
+    console.log("We hope to see you in the future!");
     }
 
 
@@ -47,6 +47,6 @@ if (roomChoice == "Yes") {
 
 }
 else if (roomChoice == "No") {
-    console.log("We hope to see you in the future!")
+    console.log("We hope to see you in the future!");
 
 }
