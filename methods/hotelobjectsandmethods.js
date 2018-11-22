@@ -3,7 +3,7 @@ var hotel = { //object
     rating: 5.0,
     roomRate: 325.00,
     roomNumbersAvailable: ["101", "102", "103", "104", "105", "106" ], 
-    roomNumbersBooked: [ ],
+    roomNumbersBooked: [],
     roomType: "Queen",
     
     numberOfRoomsAvailable: function() { 
@@ -26,10 +26,27 @@ var hotel = { //object
             // select a random available room
             var randomRoom = this.roomNumbersAvailable[Math.floor(Math.random()*this.roomNumbersAvailable.length)];
             //return available room;
-            //list.splice(list.indexOf('foo'), 1);
-            this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1);
+            
+            // this.roomNumbersBooked.unshift(randomRoom);
+            //this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1);
+            
+            //this.roomNumbersBooked.unshift(this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1)[0]);
+            
+           this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1);
+            
+             // this.roomNumbersBooked = this.roomNumbersBooked.concat(this.roomNumbersAvailable.splice(this.roomNumbersAvailable.indexOf(randomRoom), 1)); //indexOf returns the position of the item in the array
             //remove the booked room from roomNumbersAvailable and add it to roomNumbersBooked
-            this.roomNumbersBooked.push(randomRoom);
+            //splice adds or removes an item to an array
+            this.roomNumbersBooked.push(randomRoom); //push
+            // 
+        }
+    },
+    
+    checkOut: function () {
+        if (this.numberOfRoomsBooked() > 0) {
+            var vacantRoom = this.roomNumbersBooked[Math.floor(Math.random()*this.roomNumbersBooked.length)];
+            this.roomNumbersBooked.splice(this.roomNumbersBooked.indexOf(vacantRoom), 1);
+            this.roomNumbersAvailable.push(vacantRoom);
         }
     },
     
